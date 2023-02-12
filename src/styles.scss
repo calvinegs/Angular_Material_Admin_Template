@@ -37,3 +37,21 @@ $adminTest-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// for Dark Mode
+$adminTemplate-primary-dark: mat.define-palette(mat.$purple-palette);
+$adminTemplate-accent-dark: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$adminTemplate-warn-dark: mat.define-palette(mat.$red-palette);
+
+$adminTemplate-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $adminTemplate-primary-dark,
+    accent: $adminTemplate-accent-dark,
+    warn: $adminTemplate-warn-dark,
+  )
+));
+
+.dark-theme-mode {
+  @include mat.all-component-themes($adminTemplate-theme-dark);
+}
