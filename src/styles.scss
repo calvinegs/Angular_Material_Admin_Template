@@ -55,3 +55,16 @@ $adminTemplate-theme-dark: mat.define-dark-theme((
 .dark-theme-mode {
   @include mat.all-component-themes($adminTemplate-theme-dark);
 }
+
+// for snackBar
+.error.mat-mdc-snack-bar-container{
+  --mdc-snackbar-container-color: red;          // 背景
+  --mdc-snackbar-supporting-text-color: white;  // 文字顏色 
+  --mat-mdc-snack-bar-button-color: yellow;     // 按鈕文字顏
+}
+
+.success.mat-mdc-snack-bar-container{
+  --mdc-snackbar-container-color: gray;
+  --mdc-snackbar-supporting-text-color: yellow; 
+  --mat-mdc-snack-bar-button-color: white;
+}

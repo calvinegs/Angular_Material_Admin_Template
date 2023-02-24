@@ -1,3 +1,7 @@
+<ng-container *ngIf="loading$ | async">
+  <div class="overlay"></div>
+  <mat-spinner></mat-spinner>
+</ng-container>
 <mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':isDarkTheme}">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -6,7 +10,7 @@
     <mat-toolbar>功能列</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/flexbox">flex box</a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item routerLink="/getdata">loading spinner</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>

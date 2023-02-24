@@ -6,19 +6,34 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShareMaterialModule } from './shared/share-material.module';
 import { FlexboxComponent } from './components/flexbox/flexbox.component';
+import { NotifierComponent } from './components/notifier/notifier.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingSpinInterceptor } from './interceptors/loading-spin.interceptor';
+import { GetDataComponent } from './components/get-data/get-data.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlexboxComponent
+    FlexboxComponent,
+    NotifierComponent,
+    GetDataComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ShareMaterialModule
+    ShareMaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoadingSpinInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
